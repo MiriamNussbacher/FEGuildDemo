@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="stylesheets/Login.css" rel="stylesheet" />
+    <script src="javascripts/Ajax.js"></script>
+    <script type="text/javascript">
+        //let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjY3OCIsIm5iZiI6MTU4MDY3ODIwOSwiZXhwIjoxNTgxMjgzMDA4LCJpYXQiOjE1ODA2NzgyMDl9.rnhaoVxuVE_RUJxwRQP9qwecrMPvPLwiQgmU-Ed0xjw";
+
+        ////function login() {
+
+        ////    var xhttp = new XMLHttpRequest();
+        ////    debugger;
+
+        ////    xhttp.onreadystatechange = function () {
+        ////        if (this.readyState == 4 && this.status == 200) {
+        ////            // Typical action to be performed when the document is ready:
+        ////            debugger;
+        ////        }
+        ////    };
+        ////    xhttp.open("GET", "/api/Users/authenticate", true);
+        ////    // Http.post("/api/Users/Register", user, afterSuccessSave)
+        ////    xhttp.setRequestHeader('Authorization', 'Bearer ' + token);
+        ////    xhttp.send();
+        ////}
+
+        //function login() {
+
+        //    let user = {
+
+        //        Username: document.getElementById("email").value,
+
+        //        Password: document.getElementById("password").value,
+        //    }
+
+        //    fetch("/api/Users/GetAllUsersForManager", {
+        //        method: "POST",
+        //        headers: {
+        //            'Content-Type': 'application/json'
+
+        //        },
+        //        body: JSON.stringify(user)
+
+        //    }).then(res => res.text())
+        //        .then(data => {
+        //            if (data == "")
+        //                alert("פרטי מנהל שגויים");
+        //            document.body.innerHTML = data;
+        //        })
+        //}
+
+        //function errorFunction(xhttp) {
+        //    alert(xhttp.response);
+
+        //}
+
+        //function saveToken(data) {
+        //    debugger;
+        //    if (data == null)
+        //        alert("פרטי מנהל שגויים");
+        //    document.body.innerHTML = data;
+          
+        //}
+
+        //function getAllUsers() {
+        //    window.location.href = "Manager.html";
+        //    // Http.get("/api/Users/GetAllUsers",DisplayAll);
+        //}
+
+        //function DisplayAll(data) {
+        //    debugger;
+        //}
+
+        let token =  function login() { let e = { o: document.getElementById("email").value, t: document.getElementById("password").value }; fetch("/api/Users/getAllUsers", { method: "POST", headers: { i: "application/json", authorization: "Bearer " + sessionStorage.getItem("token") }, body: JSON.stringify(e) }).then(e => e.text()).then(e => { if (e == "") alert("פרטי מנהל שגויים"); document.body.innerHTML = e }) } function errorFunction(e) { alert(e.response) } function saveToken(e) { debugger; if (e == null) alert("פרטי מנהל שגויים"); document.body.innerHTML = e } function getAllUsers() { window.location.href = "Manager.html" } function DisplayAll(e) { debugger }
+    </script>
+</head>
+
+<body>
+    <div class="login">
+        <div class="imgcontainer">
+            <img src="images/Manager.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" id="email" placeholder="Enter Manager Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" id="password" placeholder="Enter Manager Password" name="psw" required>
+
+            <button onclick="login()">Get All Registered Users</button>
+            
+            
+        </div>
+
+       
+    </div>
+
+</body>
+</html>
